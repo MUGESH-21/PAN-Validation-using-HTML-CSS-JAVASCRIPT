@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="javascript.js"></script>
+    <style>
+        .pan{
+            text-align: center;
+            border: 3px solid black;
+            /* width: 35%; */
+            margin: 17% 30%;
+            border-radius: 20px;
+            background-image: linear-gradient(rgb(180, 70, 70) ,yellow);
+        }
+        body{
+                align-items: center;
+                background-image: linear-gradient(yellow,rgb(180, 70, 70));
+                overflow: hidden;
+        }
+        button{
+            padding: 8px 15px;
+            margin: 0px 0px 20px;
+            border-radius: 20px;
+            background-color: rgb(180, 70, 70);
+            color: yellow;
+            border: none;
+        }
+        button:hover{
+            background-color:rgb(34, 34, 2);
+        }
+        label,.add{
+            font-size: large;
+            font-weight: 600;
+        }
+        input{
+            padding: 1%;
+            font-size: 16px;
+            background-color: rgb(146, 73, 73);
+            border: none;
+            border-radius: 10px;
+            padding-left: 7px;
+        }
+        input:focus{
+            border: none;
+        }
+        ::placeholder {
+            color: rgb(47, 41, 41);
+            opacity: 1; /* Firefox */
+            }
+    </style>
+</head>
+<body>
+    <div class="pan">
+        <h1>PAN NUMBER VERIFICATION</h1>
+        <label for="">Enter Number : </label>
+        <input type="text" placeholder="Enter Number" id="input"><br><br>
+        <div class="add"></div><br>
+        <button onclick="check()">Submit</button>
+    </div>
+    <div class="add"></div>
+
+
+    <script>
+        let inp=document.getElementById("input").value;
+        let add=document.querySelector(".add");
+        let count=0;
+        let count2=0;
+        function check(){
+            const panRegex = /^[A-Z]{5}[0-9]{4}[A-Z]{1}$/;
+                console.log(inp);
+                if (panRegex.test(inp)) {
+                    alert("PAN Number is valid!");
+                    add.innerHTML="valid"
+                    count=1;
+                
+                } else {
+                    alert("Invalid PAN Number. Please enter a valid PAN number.");
+                    add.innerHTML="Invalid"
+                    count=2;
+                }
+        }
+
+    </script>
+</body>
+</html>
+
